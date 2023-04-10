@@ -1,4 +1,4 @@
-# 4. Using the order of operations from C, convert the following arithmetic statements into the equivalent assembly language code segment. Be careful to implement the unary minus sign, increment, and decrement operators carefully:
+# _4. Using the order of operations from C, convert the following arithmetic statements into the equivalent assembly language code segment. Be careful to implement the unary minus sign, increment, and decrement operators carefully:_
 
 ## A. --i;
 <code style='color:pink'>neg        i</code>
