@@ -1,5 +1,7 @@
 # _3. Using order of operations from C, convert the following arithmetic statements into the equivalent assembly language statements. Be sure not to destroy the contents of any of the variables that appear only to the right of the assignment symbol, unless ++ or -- is used._
 
+### OBS: a partir dessa questao, comecei a comentar algumas linhas do codigo markdown para explicar o que estou tentando fazer nas linhas dos codigos assembly
+
 ## A. x = x * y + z * 2;
 <code style='color:pink'>mov        eax, x</code><br>
 <code style='color:pink'>imul       y</code><br>
