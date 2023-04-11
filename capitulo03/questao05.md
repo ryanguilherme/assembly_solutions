@@ -8,16 +8,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.686<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.model flat, c<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.stack 100h<br>
-printf      PROTO arg1:Ptr Byte, printlist:VARARG<br>
-scanf       PROTO arg2:Ptr Byte, inputlist:VARARG<br>
+printf      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROTO arg1:Ptr Byte, printlist:VARARG<br>
+scanf       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROTO arg2:Ptr Byte, inputlist:VARARG<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.data<br>
-number      sdword ?<br>
-result      sdword ?<br>
-in0fmt      byte "%d", 0<br>
-msg0fmt     byte 0Ah, "%s", 0<br>
-msg1fmt     byte 0Ah, "%s%d", 0Ah, 0Ah, 0<br>
-msg0        byte "Enter an integer: ", 0<br>
-msg1        byte "The integer is: ", 0<br>
+number      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sdword ?<br>
+result      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sdword ?<br>
+in0fmt      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte "%d", 0<br>
+msg0fmt     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte 0Ah, "%s", 0<br>
+msg1fmt     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte 0Ah, "%s%d", 0Ah, 0Ah, 0<br>
+msg0        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte "Enter an integer: ", 0<br>
+msg1        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte "The integer is: ", 0<br>
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.code<br>
 main        proc<br>
