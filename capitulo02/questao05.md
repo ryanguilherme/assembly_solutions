@@ -1,5 +1,5 @@
 # _5. Implement the following C program in MASM. Be sure to use proper spacing on all output. If necessary, first key in the C program and then implement the MASM program to insure the MASM program works identically to the C program:_
-### OBS: Vou presumir que a ausência de aspas no começo do printf foi um erro de digitação.
+### OBS: Vou presumir que a ausência de aspas no começo do printf foi um erro de digitação., comentários sobre o código no arquivo .asm do código
 <code style='color:pink'>
 #include <stdio.h>
 int main(){<br>

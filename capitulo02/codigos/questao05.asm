@@ -4,12 +4,12 @@
 printf      PROTO arg1:Ptr Byte, printlist:VARARG
 
             .data
-x           sdword 1;
-y           sdword 2;
-z           sdword 3;
-msg1        byte " + ", 0
-msg2        byte " = ", 0
-msgfmt      byte 0Ah, "%d%s%d%s%d", 0Ah, 0Ah, 0
+x           sdword 1 ;salvando inteiro 1 em x
+y           sdword 2 ;inteiro 2 em y
+z           sdword 3 ;inteiro 3 em z
+msg1        byte " + ", 0 ;string ' + '
+msg2        byte " = ", 0 ;string ' = '
+msgfmt      byte 0Ah, "%d%s%d%s%d", 0Ah, 0Ah, 0 ;string de formatacao para toda a saida
 
             .code
 main        proc
