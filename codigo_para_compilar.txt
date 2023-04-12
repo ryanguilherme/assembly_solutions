@@ -1,0 +1,1 @@
+ml /Cx /coff questao05.asm /link /SUBSYSTEM:console /out:questao05.exe kernel32.lib legacy_stdio_definitions.lib msvcrt.lib
