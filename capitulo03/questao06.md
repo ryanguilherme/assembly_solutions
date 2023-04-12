@@ -30,7 +30,6 @@ msg0        byte "Enter the number of amperes: ", 0<br>
 msg1        byte "Enter the number of ohms: ", 0<br>
 msg2        byte "The number of volts is: ", 0<br>
 msg3        byte "The number of watts is: ", 0<br><br>
-
             .code <br>
 main        proc<br>
             INVOKE  printf, ADDR msgfmt, ADDR msg0<br>
