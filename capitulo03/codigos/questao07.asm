@@ -21,7 +21,7 @@ main        proc
             mov         eax, fah ;move fah (F-32) para eax para dividi-lo depois
             mov         ebx, 9 ; guarda 9 em ebx para dividir eax por ele
             idiv        ebx ;divide eax por ebx (ebx/9)
-            mov         cel, eax
+            ;mov         cel, eax
             mov         ebx, 5 ;move 5 para ebx para multiplicar eax por ele
             imul        ebx ;multiplica por 5 e encerra o calculo aqui
             mov         cel, eax ;guarda o resultado final em cel (celsius)
