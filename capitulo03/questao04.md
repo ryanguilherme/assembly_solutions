@@ -1,10 +1,10 @@
 # _4. Using the order of operations from C, convert the following arithmetic statements into the equivalent assembly language code segment. Be careful to implement the unary minus sign, increment, and decrement operators carefully:_
 
 ## A. --i;
-<code style='color:pink'>neg        i</code>
+<code style='color:pink'>dec        i</code>
 
 ## B. j = ++k - m;
-<code style='color:pink'>dec        k</code><br> <!-- como e ++k e nao k++, incrementar k sera minha primeira acao -->
+<code style='color:pink'>inc        k</code><br> <!-- como e ++k e nao k++, incrementar k sera minha primeira acao -->
 <code style='color:pink'>mov        eax, m</code><br> <!-- agora simplesmente movo m para eax para subtrai-lo de k, e o resto e o basico -->
 <code style='color:pink'>sub        k, eax</code><br>
 <code style='color:pink'>mov        eax, k</code><br>
