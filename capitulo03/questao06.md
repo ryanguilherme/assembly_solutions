@@ -1,4 +1,6 @@
 # _6. Given Ohm’s law from the complete program at the end of this chapter and Watt’s law as W = IE, where W stands for the number of watts, write a complete assembly language program to prompt for and input the number amperes and ohms, and then calculate both the number of volts and number of watts. The form of the input and output can be found below, and as always be careful with the vertical and horizontal spacings:_
+### OBS: Comentários sobre o código estão no arquivo .asm referente ao código
+<hr>
 
 ## **_Input and output_**
 <hr>
