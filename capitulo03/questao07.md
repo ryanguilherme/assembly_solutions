@@ -3,15 +3,15 @@
 <hr>
 
 ## _Input and Output_
-<code style='color:pink'>
+```
 Enter the degrees in Fahrenheit: 100
 The degrees in Celsius is: 35   
-</code>
+```
 
 <hr>
 
 ### **Resposta:**
-<!--<code style='color:pink'> -->
+
 ```asm
             .686<br>
             .model flat, c<br>
@@ -43,6 +43,6 @@ main        endp<br>
             end
 
 ```
-<!--</code>-->
+
 
 <hr>
