@@ -11,3 +11,35 @@ The degrees in Celsius is: 35
 <hr>
 
 ### **Resposta:**
+<code style='color:pink'>
+            .686<br>
+            .model flat, c<br>
+            .stack 100h<br>
+printf      PROTO arg1:Ptr Byte, printlist:VARARG<br>
+scanf       PROTO arg2:Ptr Byte, inputlist:VARARG<br><br>
+            .data<br>
+fah         sdword ?<br>
+cel         sdword ?<br>
+msginp      byte "Enter the degrees in Fahrenheit: ", 0<br>
+msgout      byte "The degrees in Celsius is: ", 0<br>
+inpfmt      byte "%d", 0<br>
+outfmt      byte "%s%d", 0<br><br>
+            .code<br>
+main        proc<br>
+            INVOKE      printf, ADDR msginp<br>
+            INVOKE      scanf, ADDR inpfmt, ADDR fah<br>
+            cdq<br>
+            sub         fah, 32<br>
+            mov         ebx, 9<br>
+            mov         eax, fah<br>
+            idiv        ebx<br>
+            mov         ebx, 5<br>
+            imul        ebx<br>
+            mov         cel, eax<br>
+            INVOKE      printf, ADDR outfmt, ADDR msgout, cel<br>
+            ret<br>
+main        endp<br>
+            end
+</code>
+
+<hr>
