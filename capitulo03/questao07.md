@@ -11,7 +11,8 @@ The degrees in Celsius is: 35
 <hr>
 
 ### **Resposta:**
-<code style='color:pink'>
+<!--<code style='color:pink'> -->
+```asm
             .686<br>
             .model flat, c<br>
             .stack 100h<br>
@@ -40,6 +41,8 @@ main        proc<br>
             ret<br>
 main        endp<br>
             end
-</code>
+
+```
+<!--</code>-->
 
 <hr>
