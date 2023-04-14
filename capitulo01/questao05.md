@@ -1,26 +1,35 @@
 # 5. Assuming all the variables are declared as byte, write assembly language instructions to implement each of the following C statements or segments:
 ## A. a = 'B';
-<code style='color:pink'>a          byte "B", 0</code>
+```asm
+a          byte "B", 0
+```
 ## B. b = c;
 ## &nbsp;&nbsp;&nbsp; d = 'E';
 ## &nbsp;&nbsp;&nbsp; e = d;
-<code style='color:pink'>mov        eax, c</code><br>
-<code style='color:pink'>mov        b, eax</code><br>
-<code style='color:pink'>byte       d "E", 0</code><br>
-<code style='color:pink'>mov        ebx, d</code><br>
-<code style='color:pink'>mov        e, ebx</code>
+```asm
+mov        eax, c
+mov        b, eax
+byte       d "E", 0
+mov        ebx, d
+mov        e, ebx
+```
 ## D. d = 'z';
 ## &nbsp;&nbsp;&nbsp; a = d;
 ## &nbsp;&nbsp;&nbsp; b = a;
-<code style='color:pink'>byte       d "z", 0</code><br>
-<code style='color:pink'>mov        eax, d</code><br>
-<code style='color:pink'>mov        a, eax</code><br>
-<code style='color:pink'>mov        ebx, a</code><br>
-<code style='color:pink'>mov        b, ebx</code>
+```asm
+byte       d "z", 0
+mov        eax, d
+mov        a, eax
+mov        ebx, a
+mov        b, ebx
+```
 ## E. a = '2';
 ## &nbsp;&nbsp;&nbsp; b = '?';
 ## &nbsp;&nbsp;&nbsp; a = b;
-<code style='color:pink'>byte       a "2", 0</code><br>
-<code style='color:pink'>byte       b "?", 0</code><br>
-<code style='color:pink'>mov        eax, b</code><br>
-<code style='color:pink'>mov        a, eax</code>
+
+```asm
+byte       a "2", 0
+byte       b "?", 0
+mov        eax, b
+mov        a, eax
+```
