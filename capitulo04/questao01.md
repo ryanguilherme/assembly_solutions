@@ -6,7 +6,8 @@
 add number, 2
 .endif
 ```
-**Resposta:**
+### **Resposta:**
+### Incorreto. Não se usa parênteses em assembly, o correto seria number == 0, pois também não poderia usar number = 0 já que seria como uma declaração de variável em C.
 
 <hr>
 
@@ -18,7 +19,8 @@ sub count, 2
 add count, 3
 .endif
 ```
-**Resposta:**
+### **Resposta:**
+### Incorreto. O "then" não se usa após ".if", pois ele é usado como marcador para funções de salto como jmp. O correto seria then: no início de alguma linha.
 
 <hr>
 
@@ -28,7 +30,8 @@ add count, 3
 dec x
 .endif
 ```
-**Resposta:**
+### **Resposta:**
+### Incorreto. "x-1" é uma operação inválida no assembly, logo, resultaria em um erro de sintaxe.
 
 <hr>
 
@@ -39,4 +42,5 @@ if01:       cmp x, y
             then01: inc x
 endif01:    nop
 ```
-**Resposta:**
+### **Resposta:**
+### Correto.

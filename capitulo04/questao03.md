@@ -5,7 +5,9 @@
 if (w == 1 && x == 2)
     y--;
 ```
-**Resposta:**
+### **Resposta:**
+### 
+
 <hr>
 
 ## **B.**
@@ -13,7 +15,9 @@ if (w == 1 && x == 2)
 if (!(num > 0 && num <= 3))
     count=count-2;
 ```
-**Resposta:**
+### **Resposta:**
+###
+
 <hr>
 
 ## **C.**
@@ -21,7 +25,9 @@ if (!(num > 0 && num <= 3))
 if ( ( w == 1 || x == 2 ) && y == 3)
     z++;
 ```
-**Resposta:**
+### **Resposta:**
+###
+
 <hr>
 
 ## **D.**
@@ -29,4 +35,6 @@ if ( ( w == 1 || x == 2 ) && y == 3)
 if (a == 1 || b == 2 && c > 3 || d < 4)
     e--;
 ```
-**Resposta:**
+### **Resposta:**
+###
+

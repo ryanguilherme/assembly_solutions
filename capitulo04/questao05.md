@@ -9,4 +9,5 @@ switch number {
     case 3: count = count - 2;
 }
 ```
-**Resposta:**
+### **Resposta:**
+
