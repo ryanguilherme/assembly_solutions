@@ -1,18 +1,3 @@
-# _5. Implement the following C switch statement, which does not have a default statement, using compares, jumps, and appropriate labels. If number does not contain a 0 through 3, then the value of count should not change:_
-### **OBS:** no código já está implementado um teste para quando number = 1 e count = 5.
-<hr>
-
-```c
-switch number {
-    case 0:
-    case 1: count = count + 2;
-            break;
-    case 2:
-    case 3: count = count - 2;
-}
-```
-### **Resposta:**
-```asm
             .686
             .model flat, c
             .stack 100h
@@ -38,4 +23,4 @@ endif02:    nop
 main        endp
             end
 
-```
+            
