@@ -1,24 +1,3 @@
-# _2. Using MASM directives, write an assembly language code segment to implement the following:_
-### **OBS:** as variáveis a, b, c e d são respecitvamente avar, bvar, cvar e dvar, pois devido a linha model flat, c, não podemos declarar uma variável chamada 'c'
-### **OBS':** no código já está implementado um teste para quando a = 5, b = 4, c = 3 e d = 2.
-<hr>
-
-```c
-if (a > b)
-    a = a - 1
-else
-    if (b >= c)
-        b = b - 2;
-    else
-        if (c > d)
-            c = c + d;
-        else
-            d = d / 2;
-```
-<hr>
-
-### **Resposta:**
-```asm
             .686
             .model flat, c
             .stack 100h
@@ -60,4 +39,4 @@ main        proc
 main        endp
             end
             
-```
+
