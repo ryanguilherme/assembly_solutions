@@ -1,12 +1,5 @@
-# _3. Convert the following C selection structures to the corresponding assembly language code segments. Do not use MASM directives, but rather only compares, jumps, and appropriate labels (hint: Problem B, use De Morgan’s rules):_
+---A
 
-## **A.**
-```c
-if (w == 1 && x == 2)
-    y--;
-```
-### **Resposta:**
-```asm
             .code
 main        proc
 if01:       cmp     w, 1
@@ -18,17 +11,9 @@ endif01:    nop
             ret
 main        endp
             end
-```
 
-<hr>
+---B
 
-## **B.**
-```c
-if (!(num > 0 && num <= 3))
-    count=count-2;
-```
-### **Resposta:**
-```asm
             .code
 main        proc
 if01:       cmp     num, 0
@@ -40,17 +25,8 @@ endif01:    nop
             ret
 main        endp
             end
-```
 
-<hr>
-
-## **C.**
-```c
-if ( ( w == 1 || x == 2 ) && y == 3)
-    z++;
-```
-### **Resposta:**
-```asm
+---C
             .code
 main        proc
 if01:       cmp     w, 1
@@ -68,17 +44,9 @@ endall:     nop
             ret
 main        endp
             end
-```
 
-<hr>
+---D
 
-## **D.**
-```c
-if (a == 1 || b == 2 && c > 3 || d < 4)
-    e--;
-```
-### **Resposta:**
-```asm
             .code
 main        proc
 if01:       cmp     a, 1
@@ -96,5 +64,4 @@ endall:     nop
             ret
 main        endp
             end
-```
 
