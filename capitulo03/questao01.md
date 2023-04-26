@@ -1,4 +1,7 @@
 # _1. Indicate whether the following statements are syntactically correct or incorrect. If incorrect, indicate what is wrong with the statement:_
+
+> Correção: 0,5
+
 ## A. inc eax, 1
 ### incorreta, inc possui como parâmetro apenas um valor para incrementar 1, logo não necessita e não deve receber um segundo valor. add eax, 1 estaria correto
 ## B. add ebx, ecx

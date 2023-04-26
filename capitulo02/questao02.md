@@ -1,5 +1,7 @@
 # _2. Assuming that the .data section is set up properly, what is wrong with the logic of the following code segment? How could it be rewritten to avoid the difficulty?_
 
+> Correção: 0,5
+
 ```asm
 mov     num1,5<br>
 mov     eax,num1<br>

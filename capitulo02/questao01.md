@@ -1,13 +1,20 @@
 # _1. Indicate whether the following statements are syntactically correct or incorrect. If incorrect, indicate what is wrong with the statement: 2.5 Complete Program: Using Input, Data Transfer, and Output 25_
+
+> Correção: 0,3
+
 ## A. <code style='color:pink'> printf PROTO arg1:Ptr Byte, printlist:VARARG </code>
 ### Correto
 <hr>
+
+> Correção: Incorreto. Deve ser usado _0Ah_ como hexadecimal no lugar de \n.
 
 ## B. <code style='color:pink'> msgfm1 byte "\n%s%d\n", 0</code>
 <hr>
 
 ### Correto
 <hr>
+
+> Correção: Incorreto. Não é necessário usar ADDR.
 
 ## C. <code style='color:pink'> INVOKE printf, ADDR msg1fmt, ADDR number </code>
 <hr>

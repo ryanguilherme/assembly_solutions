@@ -1,3 +1,4 @@
+; Correção: 0,5. O cdq deve vir antes do idiv. 
             .686
             .model flat, c
             .stack 100h

@@ -1,5 +1,7 @@
 # _2. Convert the following C arithmetic statements to the equivalent Intel assemblylanguage statements (hint: as discussed in the text, do not forget to move any immediate values into a register first for the imul and idiv instructions, if necessary):_
 
+> Correção: 0,5
+
 ## A. product = 3 * number;
 ```asm
 mov        eax, 3

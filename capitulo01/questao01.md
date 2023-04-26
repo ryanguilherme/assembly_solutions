@@ -1,4 +1,7 @@
 # 1. Which of the following are syntatically correct variable names in assembly language?
+
+> Correção: 0,4
+
 ## A. RX8
 ### correto
 ## B. 325i

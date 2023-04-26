@@ -1,3 +1,4 @@
+; Correção: 0,4. O segundo número está desalinhado.
             .686
             .model flat, c
             .stack 100h

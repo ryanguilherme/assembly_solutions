@@ -1,6 +1,9 @@
 # _3. Using order of operations from C, convert the following arithmetic statements into the equivalent assembly language statements. Be sure not to destroy the contents of any of the variables that appear only to the right of the assignment symbol, unless ++ or -- is used._
 
+> Correção: 0,4
+
 ### OBS: a partir dessa questao, comecei a comentar algumas linhas do codigo markdown para explicar o que estou tentando fazer nas linhas dos codigos assembly
+> Correção: Fez bem.
 
 ## A. x = x * y + z * 2;
 ```asm
@@ -54,6 +57,8 @@ imul       k ; (i - j) ja estava armazenado no registrador eax, entao basta usar
 imul       n ; como a ordem de uma multiplicacao nao importa, eu posso simplesmente multiplicar por n, e ja resultara no resultado final 
 mov        m, eax
 ```
+
+> Correção: Você esqueceu o _cdq_ para o _idiv_ funcionar.
 
 ## F. q = a - b + c / d * e; ; nesse caso a prioridade de / e * e igual, entao deve-se ser feito a operacao no sentido esquerda -> direita 
 ```asm
