@@ -7,7 +7,7 @@ add number, 2
 .endif
 ```
 ### **Resposta:**
-### Incorreto. Não se usa parênteses em assembly, o correto seria number == 0, pois também não poderia usar number = 0 já que seria como uma declaração de variável em C.
+### Incorreto. O correto seria number == 0, pois também não poderia usar number = 0 já que seria como uma declaração de variável em C.
 
 <hr>
 
