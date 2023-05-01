@@ -4,7 +4,7 @@ if n = 1, then 1 <br>
 if n = 2, then 0 + 1 = 1 <br>
 if n = 3, then 1 + 1 = 2 <br>
 if n = 4, then 1 + 2 = 3 <br>
-etc. <br>
+etc.
 # _Implement the above function iteratively with your choice (or your instructor’s choice) of any of the following:_
 
 ## **A.** ```.while```
