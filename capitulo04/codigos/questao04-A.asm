@@ -16,25 +16,24 @@ inpfmt      byte "%d%d%d%d", 0
 main        proc
             INVOKE scanf, ADDR inpfmt, ADDR avar, ADDR bvar, ADDR cvar, ADDR dvar
 
-            mov     eax, cvar
-            .if     eax > dvar
-            .if     bvar >= eax
             mov     eax, bvar
-            .if     avar > eax
-            dec     avar
+            .if     avar <= eax
+            .if     eax < cvar
+            mov     eax, dvar
+            .if     cvar <= eax
+            mov     ebx, 2
+            mov     eax, dvar
+            cdq
+            idiv    ebx
+            mov     dvar, eax
+            .else
+            add     cvar, eax
+            .endif
             .else
             sub     bvar, 2
             .endif
             .else
-            mov     eax, dvar
-            add     cvar, eax
-            .endif
-            .else
-            mov     eax, dvar
-            mov     ebx, 2
-            cdq
-            idiv    ebx
-            mov     dvar, eax
+            dec     avar
             .endif
 
             INVOKE printf, ADDR outfmt, avar, bvar, cvar, dvar
