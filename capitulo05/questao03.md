@@ -11,6 +11,7 @@ while04:        cmp     i, 8
 endwhile04:     nop
 ```
 ### **Resposta:**
+### O corpo do laço será executado 3 vezes nesse caso, pois em cada laço i é incrementado em 2, logo, para i=2, i=4 e i=6. Quando i=8 é executado um salto para o 'endwhile04' que está fora do laço.
 <hr>
 
 ## **B.**

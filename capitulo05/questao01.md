@@ -7,6 +7,7 @@
 .endfor
 ```
 ### **Resposta:**
+### Incorreto, não existe a diretiva '.for'.
 
 <hr>
 
@@ -19,6 +20,7 @@ inc i
 .endw
 ```
 ### **Resposta:**
+### Correto.
 
 <hr>
 
@@ -31,6 +33,7 @@ add i,2
 .until i>10
 ```
 ### **Resposta:**
+### Correto.
 
 <hr>
 
@@ -42,6 +45,7 @@ mov edx,3
 .untiledx
 ```
 ### **Resposta:**
+### Correto.
 
 <hr>
 
@@ -53,6 +57,7 @@ mov ebx,2
 .while ebx>0
 ```
 ### **Resposta:**
+### Correto.
 
 <hr>
 

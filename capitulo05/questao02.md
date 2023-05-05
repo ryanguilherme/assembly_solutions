@@ -17,3 +17,20 @@ mov         i, ecx          ; store ecx in i
 <hr>
 
 ### **Resposta:**
+```asm
+            mov     ans, 0
+if01:       nop
+            cmp     x, 0
+            je      endif01
+            mov     ecx, 1
+while01:    nop
+            cmp     ecx, y
+            jg      endw01
+            add     eax, x
+            mov     ans, eax
+            inc     ecx
+endw01:     nop
+            mov     i, ecx
+endif01:    nop
+            ret
+```
