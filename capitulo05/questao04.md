@@ -18,3 +18,20 @@ mov         i, ecx
 <hr>
 
 ### **Resposta:**
+```asm
+            mov     ans, 0
+if01:       nop
+            cmp     y, 0
+            je      endif01
+            mov     ecx, 1
+for01:      nop
+            mov     eax, ans
+            add     eax, x
+            mov     ans, eax
+            inc     ecx
+            cmp     ecx, y
+            jle     for01
+endfor01:   nop
+            mov     i, ecx
+endif01:    nop
+```
