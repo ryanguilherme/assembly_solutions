@@ -12,6 +12,7 @@ endwhile04:     nop
 ```
 ### **Resposta:**
 ### O corpo do laço será executado 3 vezes nesse caso, pois em cada laço i é incrementado em 2, logo, para i=2, i=4 e i=6. Quando i=8 é executado um salto para o 'endwhile04' que está fora do laço.
+
 <hr>
 
 ## **B.**
@@ -25,6 +26,8 @@ repeat05:       nop
 endrepeat05:    nop
 ```
 ### **Resposta:**
+### O corpo do laço será executado 1 vez, pois o salto condicional para o início do laço ocorre se k for menor que 3, mas no primeiro laço, k que é 0 já é incrementado em 3, logo, nesse código o salto nunca ocorrerá.
+
 <hr>
 
 ## **C.**
@@ -38,5 +41,6 @@ while06:        cmp     j, 0
 endwhile06:     nop
 ```
 ### **Resposta:**
+### O corpo do laço "; body of loop" nunca ocorrerá, pois o salto condicional para fora do laço ocorre quando j for maior que 0, e j já inicia como 1.
 
 <hr>
