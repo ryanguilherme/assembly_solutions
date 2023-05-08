@@ -2,6 +2,23 @@
 
 ## **A.** ```.while```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR inpformat, ADDR dividend, ADDR divisor
+
+mov         eax, dividend
+mov         ebx, divisor
+.while      eax >= ebx
+sub         eax, ebx
+inc         quocient
+.endw
+.if         eax < ebx
+mov         remainder, eax
+.endif
+mov         eax, quocient
+
+INVOKE      printf, ADDR outformat, quocient, remainder
+ret
+```
 
 ## **B.** ```.repeat - .until```
 ### **Resposta:**
