@@ -22,6 +22,23 @@ ret
 
 ## **B.** ```.repeat - .until```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR inpformat, ADDR dividend, ADDR divisor
+
+mov         eax, dividend
+mov         ebx, divisor
+.repeat
+sub         eax, ebx
+inc         quocient
+.until      eax < ebx
+.if         eax < ebx
+mov         remainder, eax
+.endif
+mov         eax, quocient
+
+INVOKE      printf, ADDR outformat, quocient, remainder
+ret
+```
 
 ## **C.** ```.repeat - .untilczx```
 ### **Resposta:**
