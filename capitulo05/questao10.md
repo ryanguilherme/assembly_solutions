@@ -42,6 +42,35 @@ ret
 
 ## **B.** ```.repeat - .until```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR format, ADDR n
+
+mov         eax, 0
+mov         ebx, 0
+mov         ecx, 0
+mov         edx, 0
+.repeat
+.if         ecx <= 1
+mov         eax, ecx
+mov         result, eax
+mov         edx, eax
+.else
+add         eax, edx
+add         eax, ebx
+mov         ebx, edx
+mov         edx, eax
+mov         result, eax
+mov         eax, 0
+.endif
+inc         ecx
+.until      ecx >= n
+.if         n == 1
+mov         result, 1
+.endif
+
+INVOKE      printf, ADDR format, result
+ret
+```
 
 ## **C.** ```.repeat - .untilcxz```
 ### **Resposta:**
