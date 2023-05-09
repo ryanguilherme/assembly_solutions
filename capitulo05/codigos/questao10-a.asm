@@ -6,26 +6,38 @@ scanf       PROTO arg1:Ptr Byte, inputlist:VARARG
             
             .data
 n           sdword ?
-first       sdword ?
-second      sdword ?
-acc         sdword ?
+result      sdword ?
 
 format      byte    "%d", 0
 
             .code
 main        proc
             INVOKE      scanf, ADDR format, ADDR n
-            mov         first, 0
-            mov         second, 1
-            mov         acc, 0
-            mov         eax, 0
-            mov         ecx, 0
-            .if         n == 0 || n == 1
-            add         eax, 1
-            .else
             
+            mov         eax, 0
+            mov         ebx, 0
+            mov         ecx, 0
+            mov         edx, 0
+            .while      ecx < n
+            .if         ecx <= 1
+            mov         eax, ecx
+            mov         result, eax
+            mov         edx, eax
+            .else
+            add         eax, edx
+            add         eax, ebx
+            mov         ebx, edx
+            mov         edx, eax
+            mov         result, eax
+            mov         eax, 0
+            .endif
+            inc         ecx
+            .endw
+            .if         n == 1
+            mov         result, 1
+            .endif
 
-            INVOKE      printf, ADDR format, eax
+            INVOKE      printf, ADDR format, result
             ret
 main        endp
             end
