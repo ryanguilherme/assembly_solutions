@@ -8,9 +8,47 @@ etc.
 
 ## **A.** ```.while```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR format, ADDR n
+mov         eax, 1
+.while      n > 0
+imul        n
+dec         n
+.endw
+INVOKE      printf, ADDR format, eax
+ret
+```
+<hr>
 
 ## **B.** ```.repeat - .until```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR format, ADDR n
+mov         eax, 1
+.repeat
+.if         n > 0
+    imul        n
+    dec         n
+.endif
+.until      n == 0
+INVOKE      printf, ADDR format, eax
+ret
+```
+<hr>
 
 ## **C.** ```.repeat - .untilcxz```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR format, ADDR n
+mov         eax, 1
+mov         ecx, n
+.if         ecx > 0
+.repeat
+.if         ecx > 0
+imul        ecx
+.endif
+.untilcxz
+.endif
+INVOKE      printf, ADDR format, eax
+ret
+```
