@@ -19,6 +19,7 @@ mov         eax, quocient
 INVOKE      printf, ADDR outformat, quocient, remainder
 ret
 ```
+<hr>
 
 ## **B.** ```.repeat - .until```
 ### **Resposta:**
@@ -39,6 +40,24 @@ mov         eax, quocient
 INVOKE      printf, ADDR outformat, quocient, remainder
 ret
 ```
+<hr>
 
 ## **C.** ```.repeat - .untilczx```
 ### **Resposta:**
+```asm
+INVOKE      scanf, ADDR inpformat, ADDR dividend, ADDR divisor
+
+mov         eax, dividend
+mov         ebx, divisor
+.repeat
+sub         eax, ebx
+inc         quocient
+.if         eax < ebx
+mov         ecx, 1
+.endif
+.untilcxz
+mov         remainder, eax
+
+INVOKE      printf, ADDR outformat, quocient, remainder
+ret
+```

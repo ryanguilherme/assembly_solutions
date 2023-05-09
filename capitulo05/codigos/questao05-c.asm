@@ -17,12 +17,16 @@ outformat   byte "quocient: ", "%d", 0Ah, "remainder: ", "%d";
 main        proc
             INVOKE      scanf, ADDR inpformat, ADDR dividend, ADDR divisor
 
-            mov         ecx, dividend
+            mov         eax, dividend
             mov         ebx, divisor
             .repeat
-            sub         ecx, ebx
+            sub         eax, ebx
             inc         quocient
+            .if         eax < ebx
+            mov         ecx, 1
+            .endif
             .untilcxz
+            mov         remainder, eax
 
             INVOKE      printf, ADDR outformat, quocient, remainder
             ret
