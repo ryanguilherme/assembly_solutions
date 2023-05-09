@@ -13,5 +13,20 @@ mov         ecx, 3
 mov         ecx, tempecx
 .untilcxz
 ```
+<hr>
 
 ### **Resposta:**
+```asm
+            mov         ecx, 2
+for01:      nop
+            mov         tempecx, ecx
+            mov         ecx, 3
+for02:      nop
+            loop        for02
+            mov         ecx, tempecx
+            loop        for01
+endfor02:   nop
+endfor01:   nop
+            INVOKE      printf, ADDR outfmt, tempecx
+            ret
+```

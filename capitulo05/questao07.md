@@ -8,6 +8,7 @@ do {
     i = i - 2;
 } while i > 0;
 ```
+<hr>
 
 ### **Resposta:**
 ### _.repeat - .until_
