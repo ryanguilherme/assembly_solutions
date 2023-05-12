@@ -21,28 +21,29 @@ main        proc
             test        bits, 00001b
             .if         !ZERO?
             INVOKE      printf, ADDR error0
-            ret
+            jmp         end00
             .endif
             test        bits, 00010b
             .if         !ZERO?
             INVOKE      printf, ADDR error1
-            ret
+            jmp         end00
             .endif
             test        bits, 00100b
             .if         !ZERO?
             INVOKE      printf, ADDR error2
-            ret
+            jmp         end00
             .endif
             test        bits, 01000b
             .if         !ZERO?
             INVOKE      printf, ADDR error3
-            ret
+            jmp         end00
             .endif
             test        bits, 10000b
             .if         !ZERO?
             INVOKE      printf, ADDR error4
-            ret
+            jmp         end00
             .endif
+end00:      nop
             ret
 main        endp
             end
