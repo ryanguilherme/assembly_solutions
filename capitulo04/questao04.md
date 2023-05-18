@@ -22,42 +22,43 @@ else
             .model flat, c
             .stack 100h
 printf      PROTO arg1:Ptr Byte, printlist:VARARG
+scanf       PROTO arg2:Ptr Byte, inputlist:VARARG
 
             .data
-avar        sdword 5
-bvar        sdword 4
-cvar        sdword 3
-dvar        sdword 2
-outfmt      byte 0Ah, "%d", 0
+avar        sdword ?
+bvar        sdword ?
+cvar        sdword ?
+dvar        sdword ?
+outfmt      byte "%d %d %d %d", 0
+inpfmt      byte "%d%d%d%d", 0
 
             .code
 main        proc
+            INVOKE scanf, ADDR inpfmt, ADDR avar, ADDR bvar, ADDR cvar, ADDR dvar
+
             mov     eax, bvar
-            .if     avar > eax
-            dec     avar
-            .else
-            mov     eax, cvar
-            .if     bvar >= eax
-            sub     bvar, 2
-            .else
+            .if     avar <= eax
+            .if     eax < cvar
             mov     eax, dvar
-            .if     cvar > eax
-            add     cvar, eax
-            .else
-            mov     eax, dvar
+            .if     cvar <= eax
             mov     ebx, 2
+            mov     eax, dvar
+            cdq
             idiv    ebx
             mov     dvar, eax
+            .else
+            add     cvar, eax
             .endif
+            .else
+            sub     bvar, 2
             .endif
+            .else
+            dec     avar
             .endif
-            INVOKE printf, ADDR outfmt, avar
-            INVOKE printf, ADDR outfmt, bvar
-            INVOKE printf, ADDR outfmt, cvar
-            INVOKE printf, ADDR outfmt, dvar
+
+            INVOKE printf, ADDR outfmt, avar, bvar, cvar, dvar
             ret
 main        endp
-            end
 ```
 
 <hr>
