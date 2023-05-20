@@ -36,7 +36,11 @@ mov         x, eax
 ### **Resposta:**
 ```asm
 sal         a, 4
-mov         eax, b
-sar         eax, 
+mov         eax, a
+mov         ebx, b
+sar         eax, 4 -- divide por 16
+imul        ebx, 6
+sub         eax, ebx
+mov         a, eax
 
 ```

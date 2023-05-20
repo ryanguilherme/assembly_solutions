@@ -6,6 +6,7 @@
 
 ## **B.** ```xor al, ah```
 ### **Resposta:**
+### Correto.
 <hr>
 
 ## **C.** ```rotate al, 1```
@@ -35,8 +36,9 @@
 
 ## **H.** ```lol dx, 8```
 ### **Resposta:**
+### Incorreto, não existe instrução 'lol'.
 <hr>
 
 ## **I.** ```shift 2, eax```
 ### **Resposta:**
-
+### Incorreto, a sintaxe correta para deslocar eax em 2 bits seria shl eax, 2.
