@@ -2,5 +2,12 @@
 
 ## **Resposta:**
 ```asm
-
+fat         proc        value
+            mov         eax, 1
+            .while      value > 0
+            imul        value
+            dec         value
+            .endw
+            ret
+fat         endp
 ```
