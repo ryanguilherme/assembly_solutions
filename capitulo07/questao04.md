@@ -2,5 +2,11 @@
 
 ## **Resposta:**
 ```asm
-
+macro       FACTORIAL   value
+            mov         eax, 1
+            .while      value > 0
+            imul        value
+            dec         value
+            .endw
+            endm
 ```
