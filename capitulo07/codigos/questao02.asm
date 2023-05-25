@@ -11,16 +11,17 @@ value		sdword ?
 			.code
 main		proc
 			INVOKE		scanf, ADDR format, ADDR value
-			fat			value
+			mov			ebx, value
+			call		fat
 			INVOKE		printf, ADDR format, eax
 			ret
 main		endp
 
-fat			proc 		value
+fat			proc 
 			mov			eax, 1
-			.while		value > 0
-			imul		value
-			dec			value
+			.while		ebx > 0
+			imul		ebx
+			dec			ebx
 			.endw
 			ret
 fat			endp

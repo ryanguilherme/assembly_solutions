@@ -2,12 +2,13 @@
 
 ## **Resposta:**
 ```asm
-fat         proc        value
+fat         proc
             mov         eax, 1
-            .while      value > 0
-            imul        value
-            dec         value
+            .while      ebx > 0
+            imul        ebx
+            dec         ebx
             .endw
             ret
 fat         endp
 ```
+### **OBS:** É necessário mover o valor ao qual se quer o fatorial para ebx antes de chamar **_fat_**
