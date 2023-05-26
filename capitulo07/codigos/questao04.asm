@@ -9,18 +9,19 @@ format		byte "%d", 0
 value		sdword ?
 
 			.code
-macro		FACTORIAL 	value
+FACTORIAL	macro 		value
 			mov			eax, 1
-			.while		value > 0
-			imul		value
-			dec			value
+			mov			ecx, value
+			.while		ecx > 1
+			imul		ecx
+			dec			ecx
 			.endw
 			endm
 
 main		proc
 			INVOKE		scanf, ADDR format, ADDR value
 			FACTORIAL	value
-			INVOKE		printf, ADDR format, value
+			INVOKE		printf, ADDR format, eax
 			ret
 main		endp
 			end
