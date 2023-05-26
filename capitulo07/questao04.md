@@ -2,11 +2,12 @@
 
 ## **Resposta:**
 ```asm
-macro       FACTORIAL   value
-            mov         eax, 1
-            .while      value > 0
-            imul        value
-            dec         value
-            .endw
-            endm
+FACTORIAL	macro 		value
+			mov			eax, 1
+			mov			ecx, value
+			.while		ecx > 1
+			imul		ecx
+			dec			ecx
+			.endw
+			endm
 ```
