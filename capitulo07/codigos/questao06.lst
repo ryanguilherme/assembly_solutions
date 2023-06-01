@@ -1,0 +1,115 @@
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/01/23 15:11:47
+questao06.asm						     Page 1 - 1
+
+
+				            .686
+				            .model flat, c
+				            .stack 100h
+				printf      PROTO arg1:Ptr byte, printlist:VARARG
+				scanf       PROTO arg2:Ptr byte, inputlist:VARARG
+
+ 00000000			            .data
+ 00000000 25 64 00		format      byte    "%d", 0
+
+ 00000000			            .code
+				LOADACC     macro   value
+				            mov     eax, value
+				            endm
+
+				MULTACC     macro   value
+				            push    ebx
+				            push    ecx
+				            mov     ebx, eax
+				            mov     eax, 0
+				            mov     ecx, value
+
+				            if      value LT 0
+				            neg     ecx
+				            endif
+
+				            .if      ecx > 0
+				            .while  ecx > 0
+				            add     eax, ebx
+				            dec     ecx
+				            .endw
+				            .endif
+
+				            if      value LT 0
+				            neg     eax
+				            endif
+
+				            pop     ecx
+				            pop     ebx
+
+				            endm
+
+ 00000000			main        proc
+				            LOADACC     5
+ 00000000  B8 00000005	     1	            mov     eax, 5
+				            MULTACC     -3
+ 00000005  53		     1	            push    ebx
+ 00000006  51		     1	            push    ecx
+ 00000007  8B D8	     1	            mov     ebx, eax
+ 00000009  B8 00000000	     1	            mov     eax, 0
+ 0000000E  B9 FFFFFFFD	     1	            mov     ecx, -3
+ 00000013  F7 D9	     1	            neg     ecx
+ 0000001C  03 C3	     1	            add     eax, ebx
+ 0000001E  49		     1	            dec     ecx
+ 00000024  F7 D8	     1	            neg     eax
+ 00000026  59		     1	            pop     ecx
+ 00000027  5B		     1	            pop     ebx
+				            INVOKE      printf, ADDR format, eax
+
+ 00000036  C3			            ret
+ 00000037			main        endp
+				            end
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/01/23 15:11:47
+questao06.asm						     Symbols 2 - 1
+
+
+
+
+Macros:
+
+                N a m e                 Type
+
+LOADACC  . . . . . . . . . . . .	Proc
+MULTACC  . . . . . . . . . . . .	Proc
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000003 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000037 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000037 Public C
+printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+format . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors

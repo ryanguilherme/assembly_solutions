@@ -1,0 +1,100 @@
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    05/26/23 20:40:43
+questao03.asm						     Page 1 - 1
+
+
+							.686
+							.model flat, c
+							.stack 100h
+				printf		PROTO arg1:Ptr Byte, printlist:VARARG
+				scanf		PROTO arg2:Ptr Byte, inputlist:VARARG
+
+ 00000000						.data
+ 00000000 25 64 00		format		byte "%d", 0
+ 00000003 00000000		value		sdword ?
+ 00000007 00000000		result		sdword 0
+
+ 00000000						.code
+ 00000000			main		proc
+							INVOKE		scanf, ADDR format, ADDR value
+ 00000012  E8 00000014					call		fib
+							INVOKE		printf, ADDR format, result
+ 0000002A  C3						ret
+ 0000002B			main		endp
+
+ 0000002B			fib			proc
+ 0000002B  B8 00000000					mov			eax, 0
+ 00000030  BB 00000000					mov			ebx, 0
+ 00000035  B9 00000000					mov			ecx, 0
+ 0000003A  BA 00000000					mov			edx, 0
+							.while		ecx < value
+							.if			ecx <= 1
+ 00000046  8B C1					mov			eax, ecx
+ 00000048  A3 00000007 R				mov			result, eax
+ 0000004D  8B D0					mov			edx, eax
+							.else
+ 00000051  03 C2					add			eax, edx
+ 00000053  03 C3					add			eax, ebx
+ 00000055  8B DA					mov			ebx, edx
+ 00000057  8B D0					mov			edx, eax
+ 00000059  A3 00000007 R				mov			result, eax
+ 0000005E  B8 00000000					mov			eax, 0
+							.endif
+ 00000063  41						inc			ecx
+							.endw
+							.if			value == 1
+ 00000075  C7 05 00000007 R				mov			result, 1
+	   00000001
+							.endif
+ 0000007F  C3						ret	
+ 00000080			fib			endp
+							end
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    05/26/23 20:40:43
+questao03.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000000B Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000080 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+fib  . . . . . . . . . . . . . .	P Near	 0000002B _TEXT	Length= 00000055 Public C
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000002B Public C
+printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+format . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+result . . . . . . . . . . . . .	DWord	 00000007 _DATA	
+value  . . . . . . . . . . . . .	DWord	 00000003 _DATA	
+
+	   0 Warnings
+	   0 Errors

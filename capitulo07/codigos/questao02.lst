@@ -1,0 +1,76 @@
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    05/26/23 20:40:32
+questao02.asm						     Page 1 - 1
+
+
+							.686
+							.model flat, c
+							.stack 100h
+				printf		PROTO arg1:Ptr Byte, printlist:VARARG
+				scanf		PROTO arg2:Ptr Byte, inputlist:VARARG
+
+ 00000000						.data
+ 00000000 25 64 00		format		byte "%d", 0
+ 00000003 00000000		value		sdword ?
+
+ 00000000						.code
+ 00000000			main		proc
+							INVOKE		scanf, ADDR format, ADDR value
+ 00000012  8B 1D 00000003 R				mov			ebx, value
+ 00000018  E8 0000000F					call		fat
+							INVOKE		printf, ADDR format, eax
+ 0000002B  C3						ret
+ 0000002C			main		endp
+
+ 0000002C			fat			proc 
+ 0000002C  B8 00000001					mov			eax, 1
+							.while		ebx > 0
+ 00000033  F7 EB					imul		ebx
+ 00000035  4B						dec			ebx
+							.endw
+ 0000003B  C3						ret
+ 0000003C			fat			endp
+							end
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    05/26/23 20:40:32
+questao02.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000007 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000003C Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+fat  . . . . . . . . . . . . . .	P Near	 0000002C _TEXT	Length= 00000010 Public C
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000002C Public C
+printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+format . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+value  . . . . . . . . . . . . .	DWord	 00000003 _DATA	
+
+	   0 Warnings
+	   0 Errors
