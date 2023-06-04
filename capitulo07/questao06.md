@@ -35,39 +35,51 @@ scanf       PROTO arg2:Ptr byte, inputlist:VARARG
 format      byte    "%d", 0
 
             .code
-LOADACC     macro   value
-            mov     eax, value
+LOADACC     macro   operand
+            mov     eax, operand
             endm
 
-MULTACC     macro   value
+MULTACC     macro   operand
             push    ebx
             push    ecx
+
             mov     ebx, eax
             mov     eax, 0
-            mov     ecx, value
-
-            if      value LT 0
+            mov     ecx, operand
+            
+            if      operand LT 0
             neg     ecx
             endif
 
-            .if      ecx > 0
+            if      operand EQ 0
+            mov     eax, 0
+            endif
+
+            if      operand EQ 1
+            mov     eax, ebx
+            endif
+
+            if      operand GT 1
             .while  ecx > 0
             add     eax, ebx
             dec     ecx
             .endw
-            .endif
+            endif
 
-            if      value LT 0
+            if      operand LT 0
             neg     eax
             endif
 
+
+           
             pop     ecx
             pop     ebx
 
             endm
 
 main        proc
-            LOADACC     -3
+
+            LOADACC     6
             MULTACC     1
             INVOKE      printf, ADDR format, eax
 

@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/01/23 15:11:47
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/03/23 21:11:15
 questao06.asm						     Page 1 - 1
 
 
@@ -12,58 +12,67 @@ questao06.asm						     Page 1 - 1
  00000000 25 64 00		format      byte    "%d", 0
 
  00000000			            .code
-				LOADACC     macro   value
-				            mov     eax, value
+				LOADACC     macro   operand
+				            mov     eax, operand
 				            endm
 
-				MULTACC     macro   value
+				MULTACC     macro   operand
 				            push    ebx
 				            push    ecx
+
 				            mov     ebx, eax
 				            mov     eax, 0
-				            mov     ecx, value
-
-				            if      value LT 0
+				            mov     ecx, operand
+				            
+				            if      operand LT 0
 				            neg     ecx
 				            endif
 
-				            .if      ecx > 0
+				            if      operand EQ 0
+				            mov     eax, 0
+				            endif
+
+				            if      operand EQ 1
+				            mov     eax, ebx
+				            endif
+
+				            if      operand GT 1
 				            .while  ecx > 0
 				            add     eax, ebx
 				            dec     ecx
 				            .endw
-				            .endif
+				            endif
 
-				            if      value LT 0
+				            if      operand LT 0
 				            neg     eax
 				            endif
 
+
+				           
 				            pop     ecx
 				            pop     ebx
 
 				            endm
 
  00000000			main        proc
-				            LOADACC     5
- 00000000  B8 00000005	     1	            mov     eax, 5
-				            MULTACC     -3
+
+				            LOADACC     6
+ 00000000  B8 00000006	     1	            mov     eax, 6
+				            MULTACC     1
  00000005  53		     1	            push    ebx
  00000006  51		     1	            push    ecx
  00000007  8B D8	     1	            mov     ebx, eax
  00000009  B8 00000000	     1	            mov     eax, 0
- 0000000E  B9 FFFFFFFD	     1	            mov     ecx, -3
- 00000013  F7 D9	     1	            neg     ecx
- 0000001C  03 C3	     1	            add     eax, ebx
- 0000001E  49		     1	            dec     ecx
- 00000024  F7 D8	     1	            neg     eax
- 00000026  59		     1	            pop     ecx
- 00000027  5B		     1	            pop     ebx
+ 0000000E  B9 00000001	     1	            mov     ecx, 1
+ 00000013  8B C3	     1	            mov     eax, ebx
+ 00000015  59		     1	            pop     ecx
+ 00000016  5B		     1	            pop     ebx
 				            INVOKE      printf, ADDR format, eax
 
- 00000036  C3			            ret
- 00000037			main        endp
+ 00000025  C3			            ret
+ 00000026			main        endp
 				            end
-Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/01/23 15:11:47
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/03/23 21:11:15
 questao06.asm						     Symbols 2 - 1
 
 
@@ -84,14 +93,14 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 00000003 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000037 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000026 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
 
                 N a m e                 Type     Value    Attr
 
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000037 Public C
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000026 Public C
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 
