@@ -1,0 +1,230 @@
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/03/23 21:21:24
+questao07.asm						     Page 1 - 1
+
+
+				            .686
+				            .model flat, c
+				            .stack 100h
+				printf      PROTO arg1:Ptr Byte, printlist:VARARG
+				scanf       PROTO arg2:Ptr Byte, inputlist:VARARG
+				            
+ 00000000			            .data
+ 00000000 0A 25 73 25 64	msg1fmt     byte 0Ah, "%s%d", 0Ah, 0Ah, 0
+	   0A 0A 00
+ 00000008 0A 25 73 00		msg2fmt     byte 0Ah, "%s", 0
+ 0000000C 25 64 00		inifmt      byte "%d",0
+ 0000000F 54 68 65 20 63	msg1        byte "The contents of the accumulator are: ", 0
+	   6F 6E 74 65 6E
+	   74 73 20 6F 66
+	   20 74 68 65 20
+	   61 63 63 75 6D
+	   75 6C 61 74 6F
+	   72 20 61 72 65
+	   3A 20 00
+ 00000035 49 6E 70 75 74	msg2        byte "Input an integer into the accumulator: ", 0
+	   20 61 6E 20 69
+	   6E 74 65 67 65
+	   72 20 69 6E 74
+	   6F 20 74 68 65
+	   20 61 63 63 75
+	   6D 75 6C 61 74
+	   6F 72 3A 20 00
+ 0000005D 00000000		temp        sdword ?
+ 00000061 00000003		three       sdword 3
+				            
+				;; codigo do livro
+ 00000000			            .code
+				LOADACC     macro   operand
+				            mov     eax, operand        ;; load eax with the operand
+				            endm
+
+				;; codigo do livro
+				ADDACC      macro   operand
+				            add     eax, operand        ;; add the operand to eax 
+				            endm
+
+				;; codigo do livro
+				MULTACC     macro   operand
+				            push    ebx                 ; save ebx and ecx
+				            push    ecx
+
+				            mov     ebx, eax            ; mov eax to ebx
+				            mov     eax, 0              ; clear accumulator to zero
+				            mov     ecx, operand        ;; load ecx with operand
+
+				            if      operand LT 0        ;; if operand is negative
+				            neg     ecx                 ; make ecx positive for loop
+				            endif   
+
+				            .while  ecx > 0
+				            add     eax, ebx            ; repetitively add 
+				            dec     ecx                 ; decrement ecx
+				            .endw    
+
+				            if      operand LT 0        ;; if operand is negative
+				            neg     eax                 ; negate accumulator, eax
+				            endif
+
+				            pop     ecx                 ; restore ecx and ebx
+				            pop     ebx 
+
+				            endm
+
+				STOREACC    macro   operand
+				            mov     operand, eax
+				            endm
+
+				SUBACC      macro   operand
+				            sub     eax, operand
+				            endm
+
+				DIVACC      macro   operand      
+				            push    ebx          
+				            push    ecx       
+
+				            mov     ecx, eax       
+				            mov     eax, 0              ; clear accumulator to zero
+				            mov     ebx, operand        ;; operand is the dividend
+
+				            if      operand LT 0        ;; if operand is negative
+				            neg     ebx                 ; make ecx positive for loop
+				            endif
+
+				            if      operand EQ 0
+				            mov     eax, -1             ; if operand is zero, the operation returns -1
+				            else   
+				            .while  ecx >= ebx
+				            sub     ecx, ebx
+				            inc     eax
+				            .endw
+				            endif
+
+				            if      operand LT 0
+				            neg     eax
+				            endif
+
+				            pop     ecx
+				            pop     ebx 
+				            endm   
+
+ 00000000			main        proc 
+
+ 00000000  E8 00000066		            CALL    INACC
+				            ADDACC  5 
+ 00000005  83 C0 05	     1	            add     eax, 5        
+				            ADDACC  7
+ 00000008  83 C0 07	     1	            add     eax, 7        
+				            MULTACC 4 
+ 0000000B  53		     1	            push    ebx                 
+ 0000000C  51		     1	            push    ecx
+ 0000000D  8B D8	     1	            mov     ebx, eax            
+ 0000000F  B8 00000000	     1	            mov     eax, 0              
+ 00000014  B9 00000004	     1	            mov     ecx, 4        
+ 0000001B  03 C3	     1	            add     eax, ebx            
+ 0000001D  49		     1	            dec     ecx                 
+ 00000023  59		     1	            pop     ecx                 
+ 00000024  5B		     1	            pop     ebx 
+				            SUBACC  4
+ 00000025  83 E8 04	     1	            sub     eax, 4
+				            DIVACC  3
+ 00000028  53		     1	            push    ebx          
+ 00000029  51		     1	            push    ecx       
+ 0000002A  8B C8	     1	            mov     ecx, eax       
+ 0000002C  B8 00000000	     1	            mov     eax, 0              
+ 00000031  BB 00000003	     1	            mov     ebx, 3        
+ 00000038  2B CB	     1	            sub     ecx, ebx
+ 0000003A  40		     1	            inc     eax
+ 0000003F  59		     1	            pop     ecx
+ 00000040  5B		     1	            pop     ebx 
+ 00000041  E8 00000001		            CALL    OUTACC 
+ 00000046  C3			            ret
+
+ 00000047			main        endp
+
+				;; codigo do livro
+ 00000047			OUTACC      proc
+ 00000047  50			            push    eax             ;; save eax, ecx and edx
+ 00000048  51			            push    ecx
+ 00000049  52			            push    edx
+ 0000004A  A3 0000005D R	            mov     temp, eax
+				            INVOKE  printf, ADDR msg1fmt, ADDR msg1, temp
+ 00000067  5A			            pop     edx             ;; save eax, ecx and edx
+ 00000068  59			            pop     ecx
+ 00000069  58			            pop     eax
+ 0000006A  C3			            ret       
+ 0000006B			OUTACC      endp
+
+
+ 0000006B			INACC       proc
+ 0000006B  51			            push    ecx           ;; save ecx, and edx
+ 0000006C  52			            push    edx
+				            INVOKE  printf, ADDR msg2fmt, ADDR msg2
+				            INVOKE  scanf, ADDR inifmt, ADDR temp
+ 00000091  A1 0000005D R	            mov     eax, temp
+ 00000096  5A			            pop     edx            ;; save ecx and edx
+ 00000097  59			            pop     ecx
+ 00000098  C3			            ret
+ 00000099			INACC       endp
+				            end
+Microsoft (R) Macro Assembler Version 14.35.32217.1	    06/03/23 21:21:24
+questao07.asm						     Symbols 2 - 1
+
+
+
+
+Macros:
+
+                N a m e                 Type
+
+ADDACC . . . . . . . . . . . . .	Proc
+DIVACC . . . . . . . . . . . . .	Proc
+LOADACC  . . . . . . . . . . . .	Proc
+MULTACC  . . . . . . . . . . . .	Proc
+STOREACC . . . . . . . . . . . .	Proc
+SUBACC . . . . . . . . . . . . .	Proc
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000065 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000099 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+INACC  . . . . . . . . . . . . .	P Near	 0000006B _TEXT	Length= 0000002E Public C
+OUTACC . . . . . . . . . . . . .	P Near	 00000047 _TEXT	Length= 00000024 Public C
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000047 Public C
+printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+inifmt . . . . . . . . . . . . .	Byte	 0000000C _DATA	
+msg1fmt  . . . . . . . . . . . .	Byte	 00000000 _DATA	
+msg1 . . . . . . . . . . . . . .	Byte	 0000000F _DATA	
+msg2fmt  . . . . . . . . . . . .	Byte	 00000008 _DATA	
+msg2 . . . . . . . . . . . . . .	Byte	 00000035 _DATA	
+temp . . . . . . . . . . . . . .	DWord	 0000005D _DATA	
+three  . . . . . . . . . . . . .	DWord	 00000061 _DATA	
+
+	   0 Warnings
+	   0 Errors
