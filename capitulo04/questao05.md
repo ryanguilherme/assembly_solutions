@@ -2,6 +2,8 @@
 ### **OBS:** no código já está implementado um teste para quando number = 1 e count = 5.
 <hr>
 
+> Correção: 0,1. Se você fizer number == 2, nada executa. 
+
 ```c
 switch number {
     case 0:

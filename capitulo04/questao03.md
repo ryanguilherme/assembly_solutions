@@ -1,5 +1,7 @@
 # _3. Convert the following C selection structures to the corresponding assembly language code segments. Do not use MASM directives, but rather only compares, jumps, and appropriate labels (hint: Problem B, use De Morgan’s rules):_
 
+> Correção: 0,0. Você está saltando da primeira comparação ao fim do laço. 
+
 ## **A.**
 ```c
 if (w == 1 && x == 2)
@@ -23,6 +25,10 @@ main        endp
 <hr>
 
 ## **B.**
+
+> Correção: 0,0
+> Se num > 0, não executa. Entretanto, se num == 4, num <= 3 é falso, o que torna num > 0 && num <= 3 falso, o que torna !(num > 0 && num <= 3) verdadeiro. 
+
 ```c
 if (!(num > 0 && num <= 3))
     count=count-2;

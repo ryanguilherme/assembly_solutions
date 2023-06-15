@@ -3,6 +3,8 @@
 ### **OBS':** no código já está implementado um teste para quando a = 5, b = 4, c = 3 e d = 2.
 <hr>
 
+>> Correção: 0,3.
+
 ```c
 if (a > b)
     a = a - 1

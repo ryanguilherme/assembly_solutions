@@ -1,5 +1,7 @@
 # _1. Indicate whether the following statements are syntactically correct or incorrect in MASM. If incorrect, indicate what is wrong with the statement:_
 
+> Correção: 0,2. Não podemos usar duas posições de memória na instrução _cmp_.
+
 ## **A.**
 ```asm
 .if (number = 0)
