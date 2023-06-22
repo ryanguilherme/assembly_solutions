@@ -1,5 +1,7 @@
 # _3. Given the following while loops implemented using conditional and unconditional jumps, indicate how many times the body of each loop will be executed:_
 
+> Correção: 0,1
+
 ## **A.**
 ```asm
                 mov     i, 2

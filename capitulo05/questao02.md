@@ -1,5 +1,7 @@
 # _2. Implement the last code segment in Sect. 5.1 without using directives and using only conditional and unconditional jumps._
 
+> Correção: 0,1
+
 ## _*Last code segment in Sect. 5.1*_
 ```asm
 mov         ans, 0          ; initialize ans to 0
