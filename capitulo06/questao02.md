@@ -1,5 +1,7 @@
 # **2.** _Given the following C arithmetic instructions, implement them using arithimetc shift instructions, where possible:_
 
+> Correção: 0,5
+
 ## **A.** ```answer = num - total / 32;```
 ### **Resposta:**
 ```asm
