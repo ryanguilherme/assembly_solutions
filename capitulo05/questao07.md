@@ -1,5 +1,7 @@
 # _7. Implement the following do-while loop first using the .repeat - .until directives and then using only compares, and conditional and unconditional jumps:_
 
+> Correção: 0,2
+
 ```c
 i = 10;
 sum = 0;

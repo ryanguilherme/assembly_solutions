@@ -1,3 +1,4 @@
+; Correção: 1,0 
             .686
             .model flat, c
             .stack 100h
@@ -34,10 +35,10 @@ main        proc
             inc         ecx
             .endw
             .if         n == 1
-            mov         result, 1
+            mov         result, 1'
             .endif
 
             INVOKE      printf, ADDR format, result
             ret
 main        endp
-            end
+            en'

@@ -1,5 +1,7 @@
 # _8. Implement the last code segment in Sect. 5.5 using the loop instruction instead of .repeat and .untilcxz directives._
 
+> Correção: 0,2
+
 ## _Last code segment in Sect. 5.5_
 
 ```asm

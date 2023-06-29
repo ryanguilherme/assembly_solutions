@@ -1,5 +1,7 @@
 # _1. Given the following assembly language statements, indicate whether they are syntactically correct or incorrect. If incorrect, indicate what is wrong with the statement:_
 
+> Correção: 0,0.
+
 ## **A.**
 ```asm
 .for i 1;i< 3;i++
@@ -21,6 +23,8 @@ inc i
 ```
 ### **Resposta:**
 ### Correto.
+
+> Correção: Incorreto. A diretiva while precisa começar com um ponto (.).
 
 <hr>
 
@@ -47,6 +51,8 @@ mov edx,3
 ### **Resposta:**
 ### Correto.
 
+> Correção: Incorreto. Não existe a diretiva .untiledx.
+
 <hr>
 
 ## **E.**
@@ -58,6 +64,8 @@ mov ebx,2
 ```
 ### **Resposta:**
 ### Correto.
+
+> Correção: Incorreto. Não existe a diretiva .do.
 
 <hr>
 
