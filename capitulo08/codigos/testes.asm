@@ -1,25 +1,27 @@
-            .686
-            .model flat, c
-            .stack 100h
-printf      PROTO arg1:Ptr Byte, printlist:VARARG
-scanf       PROTO arg2:Ptr Byte, inputlist:VARARG
+                .686
+                .model flat, c
+                .stack 100h
+printf          PROTO arg1:Ptr Byte, printlist:VARARG
+scanf           PROTO arg2:Ptr Byte, inputlist:VARARG
+                .data
 
-            .data
-format      byte "%d", 0
-narray      sdword 1, 2, 3, 4, 5
-marray      sdword 10 dup(?)
-oarray      sword 15, 20, 25
+format          byte "%d", 0
+array           sdword 20 dup(?)
+second_array    sdword 20 dup(?)
+                
+                .code
+main            proc
 
-            .code
-main        PROC
-        ;    mov         eax, lengthof narray
-        ;    mov         eax, sizeof   narray
-        ;    mov         eax, lengthof marray
-        ;    mov         eax, sizeof   marray
-        ;    mov         eax, lengthof oarray
-            mov         eax, sizeof   oarray
+                mov             ecx, lengthof array
+                .repeat
+                mov             eax, array[ecx*4-4]
+                mov             second_array[ecx*4-4], eax
+                .untilcxz
 
-            INVOKE      printf, ADDR format, eax
-            ret
-main        endp
-            end
+                mov             eax, second_array+76            ; apenas checando o valor do ultimo indice, resultado ok
+
+                INVOKE          printf, ADDR format, eax
+
+                ret
+main            endp
+                end
