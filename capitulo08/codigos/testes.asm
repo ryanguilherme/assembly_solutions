@@ -5,18 +5,22 @@ printf      PROTO arg1:Ptr Byte, printlist:VARARG
 scanf       PROTO arg2:Ptr Byte, inputlist:VARARG
 
             .data
-temp        sdword 5, 7
 format      byte "%d", 0
-y           sdword 1, 2, 3, 4, 5
-i           sdword 1
+
+z           sdword 1, 2, 3, 4, 5
+i           sdword 2
+j           sdword 3
 
             .code
 main        PROC
-            ; y[i+1] = y[i]
-            mov         eax, i
-            mov         ebx, 4
-            imul        ebx
-            mov         esi, offset y+i
+            ; z[i] = z[j]
+            mov         edx, j
+            mov         eax, z[edx*4]
+            mov         edx, i
+            mov         z[edx*4], eax
+
+            mov         eax, z+8
+
             INVOKE      printf, ADDR format, eax
             ret
 main        endp
