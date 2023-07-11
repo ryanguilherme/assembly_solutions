@@ -1,0 +1,2 @@
+# **7.** _Alter the if-then-else-if code segment in Sect. 10.8 to add an else section to the nested if statement to output the message “x and y are equal”. 10.12 Exercises (Items Marked with an * Have Solutions in Appendix D) 235_
+[Código ASM aqui](codigos/questao07.asm)

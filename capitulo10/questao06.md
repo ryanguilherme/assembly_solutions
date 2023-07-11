@@ -1,0 +1,2 @@
+# **6.** _Alter the if-then code segment at the begining of Sect. 10.8 to implement an if-then-else structure to output the message “x is less than or equal to y”in the else section._
+[Código ASM aqui](codigos/questao06.asm)
