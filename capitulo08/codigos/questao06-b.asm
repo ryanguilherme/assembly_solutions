@@ -1,7 +1,7 @@
             .686
             .model flat, c
             .stack 100h
-printf      PROTO arg1:Ptr Byte, printlist:VARARG
+printf      PROTO arg1:Ptr Byte, printlist:VARARG      
 
             .data
 array       sdword  17, 26, 3, 31, 44, 82, 9, 6, 0, 11, 251, 39, 5, 1
@@ -10,13 +10,15 @@ j           sdword  0
 n           sdword  ?  
 tempecx     sdword  ?
 temp        sdword  ?
-format      byte    "%d ", 0
+swap        sdword  0
+msgfmt      byte    "%d ",0
 
             .code
 main        proc
             mov     n, lengthof array
             mov     ecx, n
             dec     ecx
+
             .repeat
             mov     tempecx, ecx
             mov     eax, n
@@ -38,23 +40,29 @@ main        proc
             .if     eax > ebx 
             mov     [esi], ebx 
             mov     [edi], eax 
+            mov     swap, 1
             .endif
 
             inc     j
             .untilcxz
 
+            .if     swap == 0
+            jmp     endfor
+            .endif
+
             mov     ecx, tempecx
             inc     i
             .untilcxz
 
+endfor:     nop        
+
             mov     ecx, n
             mov     edi, offset array
-
             .repeat
             push    ecx
             mov     eax, [edi]
             mov     temp, eax
-            INVOKE  printf, ADDR format, temp
+            INVOKE  printf, ADDR msgfmt, temp       ; OUTPUT
             add     edi, 4
             pop     ecx
             .untilcxz
