@@ -1,7 +1,3 @@
-# 6. Just as there is a simple and modified version of the selection sort, so is there both a simple version and a modified version of the bubble sort. The simple version in C is the same length as the simplified version of the selection sort presented in **Sect. 8.6.** 186 8 Arrays
-
-## **a.** Write both the C code and the assembly code to implement the simplified version of the bubble sort which compares every element of every pass through the array whether there was a swap on the previous pass or not.
-```asm
             .686
             .model flat, c
             .stack 100h
@@ -66,6 +62,3 @@ main        proc
             ret
 main        endp
             end
-```
-
-## **b.** First write the C code for the modified version of the bubble sort and then write the modified version in assembly language. With the modified version, if there is not a swap on the previous pass through the array, the array is in order and there is no need to make any subsequent passes through the array.
