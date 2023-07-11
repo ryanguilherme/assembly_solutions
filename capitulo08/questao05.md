@@ -1,6 +1,7 @@
 # 5. Write both the C code and the assembly code to transfer the contents of a 20-element array of integers to a second 20-element array of integers.
 
 ## **Código C:**
+[Código C aqui](codigos/questao05.c)
 > TESTADO: OK
 ```c
 #include <stdio.h>
@@ -21,6 +22,7 @@ int main(){
 ---
 
 ## **Código ASM:**
+[Código ASM aqui](codigos/questao05.asm)
 > TESTADO: OK
 ```asm
                 .686
