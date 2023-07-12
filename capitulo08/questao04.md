@@ -1,5 +1,7 @@
 # 4. Given the declarations below, indicate what would be stored in the eax register for each of the following instructions. Note that oarray is of type sword, not sdword (hint: see Chap. 1):
 
+> Correção: 0,5
+
 ```asm
     narray sdword 1, 2, 3, 4, 5
     marray sdword 10 dup(?)

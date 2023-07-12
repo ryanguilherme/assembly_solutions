@@ -1,5 +1,7 @@
 # 2. Given the contents of the following memory location, what is stored in the eax register at the end of each segment? 8.7 Complete Program: Implementing the Selection Sort 185
 
+> Correção: 0,5
+
 ## **A.** ```mov eax, temp```
 ### **Resposta:**
 ### 5

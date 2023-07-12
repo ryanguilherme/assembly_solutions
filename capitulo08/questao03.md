@@ -1,5 +1,6 @@
 # 3. Implement the following C instructions using assembly language. Assume all variables are declared as sdword;
 
+> Correção: 0,5
 
 ## **A.** ```num[0] = 1;```
 ### **Resposta:**
