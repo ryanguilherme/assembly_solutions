@@ -1,10 +1,11 @@
+; Correçao; 0,5
             .686
             .model flat, c
             .stack 100h
 printf      PROTO arg1:Ptr Byte, printlist:VARARG
 
             .data
-array       sdword  17, 26, 3, 31, 44, 82, 9, 6, 0, 11, 251, 39, 5, 1
+array       sdword  1, 20, 3, 40, 5, 60, 7, 80, 9, 10, 11, 12, 13, 14
 i           sdword  0
 j           sdword  0     
 n           sdword  ?  

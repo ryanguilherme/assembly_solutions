@@ -1,5 +1,7 @@
 # 1. Given the following assembly language statements, indicate whether they are syntactically correct or incorrect. If incorrect, indicate what is wrong with the statement:
 
+> Correção: 0,5
+
 ## **A.** ```x sdword ?, ?, ?```
 ### **Resposta:**
 ### Correto.
