@@ -5,10 +5,10 @@ printf      PROTO arg1:Ptr Byte, printlist:VARARG
 scanf       PROTO arg1:Ptr Byte, inputlist:VARARG
 
             .data
-msg1fmt     byte    0Ah,"%s",0Ah,0Ah,0
-msg2fmt     byte    " %3.1f",0Ah,0
-msg3fmt     byte    "%lf",0
-msg1        byte    "Array",0
+msg1fmt     byte    0Ah, "%s", 0
+msg2fmt     byte    "%3.1f", 0Ah, 0
+msg3fmt     byte    "%lf", 0
+msg1        byte    "Array", 0Ah, 0
 msg2        byte    "Enter a float number: ", 0        
 n           sdword  5
 array       real8   5 dup(?)
