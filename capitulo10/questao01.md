@@ -16,7 +16,7 @@ fadd
 fistp   z
 ```
 ### **Resposta:**
-###
+### 8
 ---
 
 ## **B.**
@@ -29,7 +29,7 @@ fadd
 fisttp  z
 ```
 ### **Resposta:**
-###
+### 8
 ---
 
 ## **C.**
@@ -40,7 +40,7 @@ fsub
 fistp   z
 ```
 ### **Resposta:**
-###
+### 4
 ---
 
 ## **D.**
@@ -54,5 +54,5 @@ fadd
 fistp   z
 ```
 ### **Resposta:**
-###
+### 10
 ---
