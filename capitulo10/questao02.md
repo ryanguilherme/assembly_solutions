@@ -1,5 +1,7 @@
 # **2.** _Convert the following C-like arithmetic instructions into post-fix form and then write the corresponding assembly language instructions. Assume that all vari- ables are of type real8._
 
+> Correção: 0,5
+
 ## **A.** ```answer = x - y + z;```
 ### **Resposta:**
 ### _Pos-fix: xy-z+_

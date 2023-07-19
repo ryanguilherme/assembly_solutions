@@ -1,3 +1,4 @@
+; Correção: 0,3. Você declarou x e y como inteiros.
             .686
             .model flat, c
             .stack 100h

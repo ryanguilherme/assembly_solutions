@@ -1,5 +1,7 @@
 # **2.** _Given the following declarations, walk through the following code segments and indicate the contents of the ecx, esi, edi, and al registers upon completion of each segment. You may assume that string1 starts at memory location 100 and string2 at memory location 105. With problem D, in addition to the registers, what would be the contents of string2?_
 
+> Correção: 0,3.
+
 ```asm
 string1 byte "abcde"
 string2 byte "abcyz"
@@ -62,5 +64,8 @@ stosb
 ```
 ### **Resposta:**
 ### ecx = undefined, esi = undefined, edi = 106, al = "d"
+
+> Correção: _edi_ é 106.
+
 
 ---

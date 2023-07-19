@@ -1,3 +1,4 @@
+; Correção: 0,3. Você transformou em um for, não em um do-while.
             .686 
             .model flat,c 
             .stack 100h 
