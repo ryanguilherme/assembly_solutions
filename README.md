@@ -19,5 +19,6 @@ As soluções estão organizadas por capítulos. Cada capítulo possui seu próp
 - [Capítulo 09 - Strings](capitulo09)
 - [Capítulo 10 - Instruções de Ponto flutuante](capitulo10)
 
+---
 
 Sinta-se à vontade para explorar as soluções, estudar os conceitos de linguagem assembly e usar este repositório como referência em sua jornada de aprendizado em Linguagem Assembly.
